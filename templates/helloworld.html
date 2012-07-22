@@ -1,0 +1,89 @@
+{% extends index.html %}
+
+{% block main %}
+<div class="hero-unit">
+    <h1>Welcome to Labs Boilerplate</h1>
+    <p>From idea to prototyping in 5 minutes</p>
+    <p><a href="https://bits.bazaarvoice.com/confluence/display/LAB/Labs+Boilerplate" class="btn primary large">Learn more »</a></p>
+</div>
+
+<div class="row">
+    <div class="span7">
+        <h2>Running Locally</h2>
+        <p>
+            To run your new app locally, you need to install a few dependencies. 
+            I highly recommend you use <a href="http://www.doughellmann.com/docs/virtualenvwrapper/">virtualenvwrapper</a>
+            to isolate your projects.  With or without virtualenvwrapper,
+            run the command below to install the required dependencies:
+            <pre>$ pip install -r deployment/requirements.txt</pre>
+        </p>
+        <p>
+            Once you've installed the dependencies, use the following command to start the tornado
+            server locally:
+            <pre>$ python server.py -debug</pre>
+        </p>
+        <p>
+            Your app should be accessible at http://localhost:8888/hello.
+        </p>
+
+        <h2>Deploying Changes</h2>
+        <p>
+            Deploying your changes is as easy as running the following command:
+            <pre>$ pushChanges</pre>
+        </p>
+        <p>
+            <code>pushChanges</code> will package up your web app and push it out
+            to your EC2 instance.  
+        </p>
+
+        <h2>Help!</h2>
+        <p>
+            If you run into trouble, help is not far away.  Please contact:
+            <address>
+                <strong>Adam McElwee</strong>
+                <br>
+                <a href="mailto:Adam.McElwee@bazaarvoice.com">Adam.McElwee@bazaarvoice.com</a>
+            </address>
+            <address>
+                <strong>Nick Downing</strong>
+                <br>
+                <a href="mailto:Nick.Downing@bazaarvoice.com">Nick.Downing@bazaarvoice.com</a>
+            </address>
+        </p>
+    </div>
+    <div class="span1"><p>&nbsp;</p></div>
+    <div class="span7">
+        <h2>Data API Example</h2>
+        <p>
+            Labs Boilerplate comes with a Bazaarvoice <a href="http://developer.bazaarvoice.com">Data API</a>
+            client baked in!  The sample review below was loaded from testcustomer data.  Check out the
+            <code>bvapi</code> directory in your project for details.
+        </p>
+        <div class="well">
+          {% if review.Product %}
+            <img src="{{review.Product.ImageUrl}}" alt="{{review.Product.Name}}">
+            <p>{{review.Product.Name}}</p>
+          {% end %}
+          <h3>{{review.Title or 'No title'}}</h3>
+          <p>
+            {{review.ReviewText or 'No review text'}}
+          </p>
+        </div>
+
+        <h2>Feedback</h2>
+        <p>
+            I'm always looking for ways to improve Labs Boilerplate.  If you've got any
+            feedback, please send it to <a href="mailto:Nick.Downing@bazaarvoice.com">Nick Downing</a>.
+        </p>
+    </div>
+</div>
+{% end %}
+
+{% block footer %}
+<p class="pull-right">
+    <a href="mailto:Nick.Downing">Labs Boilerplate Feedback</a>
+</p>
+<p>
+    © Bazaarvoice 2011
+</p>
+{% end %}

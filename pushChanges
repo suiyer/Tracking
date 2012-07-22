@@ -1,0 +1,3 @@
+#!/bin/bash
+# Push your changes live.
+/opt/bazaarvoice/labsbp/deploy/bvlabs-sand
